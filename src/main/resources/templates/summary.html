@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Summary</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="h-100 d-flex align-items-center justify-content-center">
+  <div class="row">
+    <div class="mt-5">
+      <div>
+        <h1 class="text-center mb-5">Summary</h1>
+      </div>
+      <div>
+        <h2 th:field="${totalCaloriesBurned}">Total Calories Burned: [[${totalCaloriesBurned}]] calories</h2>
+      </div>
+      <div>
+        <h2 th:field="${totalWorkoutTime}">Total Workout Time: [[${totalWorkoutTime}]] minutes</h2>
+      </div>
+      <div>
+        <h2 th:field="${totalDistanceDone}">Total Distance Done: [[${totalDistanceDone}]] km</h2>
+      </div>
+      <div>
+        <h2 th:field="${totalRepetitions}">Total Repetitions: [[${totalRepetitions}]]</h2>
+      </div>
+      <div>
+        <a class="h2 mt-5" th:href="@{/activities}">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

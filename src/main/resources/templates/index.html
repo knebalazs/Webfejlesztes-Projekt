@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Activity Manager</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <h1>Welcome to Activity Manager</h1>
+    </div>
+    <div class="container-fluid text-center mb-5 mt-5">
+        <a class="h2" th:href="@{/activities}">Manage Activities</a>
+    </div>
+    <div class="container-fluid text-center mb-5 mt-5">
+        <a class="h2" th:href="@{/summary}">View Summary</a>
+    </div>
+    <div class="container-fluid text-center mb-5 mt-5">
+        <a class="h3" sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
+    </div>
+</body>
+</html>

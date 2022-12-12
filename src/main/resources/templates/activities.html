@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Activities</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid text-center">
+  <div><h2>Manage Activities</h2></div>
+  <div class="">
+    <a class="h3 float-left ml-5 mb-3" sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
+    <a class="h3 float-right mr-5 mb-3" th:href="@{/summary}">Summary</a>
+  </div>
+
+  <div th:if="${message}" class="alert-success text-center">
+    [[${message}]]
+  </div>
+
+  <div>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Workout Type</th>
+            <th>Workout Length(minutes)</th>
+            <th>Distance(km)</th>
+            <th>Repetitions</th>
+            <th>Calories Burned</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <th:block th:each="activity : ${listActivities}">
+            <tr>
+              <td>[[${activity.id}]]</td>
+              <td>[[${activity.workoutType}]]</td>
+              <td>[[${activity.workoutLength}]]</td>
+              <td>[[${activity.distance}]]</td>
+              <td>[[${activity.repetitions}]]</td>
+              <td>[[${activity.caloriesBurned}]]</td>
+              <td>
+                <a class="h4 mr-3" th:href="@{'/activities/edit/' + ${activity.id}}">Edit</a>
+                <a class="h4" th:href="@{'/activities/delete/' + ${activity.id}}">Delete</a>
+              </td>
+            </tr>
+          </th:block>
+        </tbody>
+    </table>
+  </div>
+  <div class="m-2">
+    <a class="h3" th:href="@{/activities/new}">+ Add new Activity</a>
+  </div>
+</div>
+</body>
+</html>
